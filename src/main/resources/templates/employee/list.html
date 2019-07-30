@@ -97,41 +97,49 @@
 	                        <th>Salário</th>
 	                        <th>Departamento</th>
 	                        <th>Cargo</th>
+	                        <th>Data de Nascimento</th>
+	                        <th>Telefone</th>
+	                        <th>Email</th>                      
 	                        <th>Endereço</th>
-	                        <th>Data de Entrada</th>
-	                        <th>Data de Saída</th>
-	                        <th>Ação</th>
+	                        <th>Data de admissão</th>
+	                        <th>Data de demissão</th>	  
+	                        <th>Ações</th>
 	                    </tr>
 	                    </thead>
 	                    <tbody>
-	                    <tr th:each="funcionario : ${funcionarios}">
-	                        <td th:text="${funcionario.id}">ID</td>
-	                        <td th:text="${funcionario.nome}"> NOME</td>
-	                        <td th:text="|R$ ${{funcionario.salario}}|">SALARIO</td>
-	                        <td th:text="${funcionario.cargo.departamento.nome}"> DEPARTAMENTO</td>
-	                        <td th:text="${funcionario.cargo.nome}">CARGO</td>
+	                    <tr th:each="employee : ${employees}">
+	                        <td th:text="${employee.id}">ID</td>
+	                        <td th:text="${employee.name}"> NOME</td>
+	                        <td th:text="|R$ ${{employee.salary}}|">SALARIO</td>
+	                        <td th:text="${employee.position.department.name}"> DEPARTAMENTO</td>
+	                        <td th:text="${employee.position.name}">CARGO</td>	                        
+	                        <td th:text="${#temporals.format(employee.birthDate, 'dd/MM/yyyy')}">data de nascimento</td>	                        
+	                        <td th:text="${employee.phone}">telefone</td>	 
+	                        <td th:text="${employee.email}">Email</td>	                        
 	                        <td>
 	                            <button type="button" class="btn btn-secondary btn-sm" data-container="body"
-	                                    data-toggle="popover" data-placement="top"
+	                                    data-toggle="popover" data-placement="bottom"
 	                                    th:attr="data-content=${#strings.concat(
-	                                    	funcionario.endereco.logradouro, ', ',
-	                                    	funcionario.endereco.numero, ' ',
-	                                    	funcionario.endereco.complemento, ' - ',
-	                                    	funcionario.endereco.bairro, ', ',
-	                                    	funcionario.endereco.cidade, ' - ',
-	                                    	funcionario.endereco.uf.sigla, ' - ',
-	                                    	funcionario.endereco.cep	                                    	
+	                                    	employee.address.publicPlace, ', ',
+	                                    	employee.address.number, ' ',
+	                                    	employee.address.complement, ' - ',
+	                                    	employee.address.neighborhood, ', ',
+	                                    	employee.address.city, ' - ',
+	                                    	employee.address.uf.stateAcronym, ' - ',
+	                                    	employee.address.postalCode	                                    	
 	                                    )}">
 	                                <span class="oi oi-eye" title="Visualizar" aria-hidden="true"></span>
 	                            </button>
 	                        </td>
-	                        <td th:text="${#temporals.format(funcionario.dataEntrada, 'dd/MM/yyyy')}">data de Entrada</td>
-	                        <td th:text="${#temporals.format(funcionario.dataSaida, 'dd/MM/yyyy')}">data de Saida</td>
-	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" th:href="@{/funcionarios/editar/{id} (id = ${funcionario.id})}" role="button">
+	                        <td th:text="${#temporals.format(employee.admissionDate, 'dd/MM/yyyy')}">data de Admissão</td>
+	                        <td th:text="${employee.resignationDate == null} ? ${'--'} : ${#temporals.format(employee.resignationDate, 'dd/MM/yyyy')}">data de demissão</td>
+	                        <td colspan="1">
+	                            <a class="btn btn-info btn-sm" th:href="@{/funcionarios/editar/{id} (id = ${employee.id})}" role="button">
 	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
 	                            </a>
-	                            <button th:id="${#strings.concat('btn_funcionarios/excluir/', funcionario.id) }" type="button" class="btn btn-danger btn-sm"
+	                        </td>
+	                        <td>
+	                            <button th:id="${#strings.concat('btn_funcionarios/excluir/', employee.id) }" type="button" class="btn btn-danger btn-sm"
 	                                    data-toggle="modal" data-target="#myModal">
 	                                <span class="oi oi-circle-x" title="Excluir" aria-hidden="true"></span>
 	                            </button>

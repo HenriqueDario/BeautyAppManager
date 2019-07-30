@@ -1,5 +1,6 @@
 package com.darioprod.beautyapp.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -7,8 +8,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "product")
 public class Product  extends AbstractModel<Long>{
-	
+
+	@Column(nullable = false)
 	private String description;
+
+	@Column(nullable = false)	
 	private boolean isSalable;
 
 	public String getDescription() {

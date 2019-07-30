@@ -36,21 +36,23 @@ public enum UF {
 		this.description = description;
 	}
 
-	public String getSigla() {
+	public String getStateAcronym() {
 		return stateAcronym;
 	}
 
-	public void setSigla(String stateAcronym) {
+	public void setStateAcronym(String stateAcronym) {
 		this.stateAcronym = stateAcronym;
 	}
 
-	public String getDescricao() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDescricao(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	
 	
 	
 	

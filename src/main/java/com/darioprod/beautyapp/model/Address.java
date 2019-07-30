@@ -1,18 +1,35 @@
 package com.darioprod.beautyapp.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "address")
 public class Address extends AbstractModel<Long>{
-	
-	private String number;
+
+	@Column(nullable = false, length = 5)
+	private String number;	
+
+	@Column(nullable = false)
 	private String city;
-	private String complement;
+
+	@Column(nullable = false, length = 9)
 	private String postalCode;
+
+	@Column(nullable = false)
 	private String publicPlace; //logradouro
+	
+	@Column(nullable = false)
+	private String neighborhood;
+	
+	private String complement;	
+
+	@Column(nullable = false, length = 2)
+	@Enumerated(EnumType.STRING)
 	private UF uf;
 	
 	
@@ -53,6 +70,12 @@ public class Address extends AbstractModel<Long>{
 		this.uf = uf;
 	}
 	
+	public String getNeighborhood() {
+		return neighborhood;
+	}
+	public void setNeighborhood(String neighborhood) {
+		this.neighborhood = neighborhood;
+	}
 	
 	
 }

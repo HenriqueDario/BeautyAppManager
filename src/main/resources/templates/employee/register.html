@@ -14,7 +14,7 @@
 							<span>Cadastrar Funcionários</span></li>
 					</ul>
 				</div>
-				<a class="btn btn-primary btn-md" href="/funcionarios/listar"
+				<a class="btn btn-primary btn-md" th:href="@{/funcionarios/listar}"
 					role="button"> <span class="oi oi-spreadsheet" title="Cadastro"
 					aria-hidden="true"></span> <span>Listar Funcionários</span>
 				</a>
@@ -25,99 +25,120 @@
 
 			<div th:replace="fragments/alert"></div>
 
-			<!-- <form th:action="${funcionario.id == null} ? @{/funcionarios/salvar} : @{/funcionarios/editar}" th:object="${funcionario}"
+			<form th:action="${employee.id == null} ? @{/funcionarios/salvar} : @{/funcionarios/editar}" th:object="${employee}"
 				method="POST">
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label for="nome">Nome do Funcionário</label> <input type="text"
-							class="form-control" id="nome" placeholder="Nome Completo"
-							autofocus="autofocus" th:field="*{nome}" />
+						<label for="name">Nome do Funcionário</label> <input type="text"
+							class="form-control" id="name" placeholder="Nome Completo"
+							autofocus="autofocus" th:field="*{name}" />
 						<div class="invalid-feedback"></div>
 					</div>
 					<div class="form-group col-md-6">
-						<label for="salario">Salário Bruto</label> <input type="text"
-							class="form-control" id="salario" data-mask="#.##0,00"
-							data-mask-reverse="true" th:field="*{salario}" />
-						<div class="invalid-feedback"></div>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-md-6">
-						<label for="dataEntrada">Data de Entrada</label> <input
-							type="date" class="form-control" id="dataEntrada"
-							th:field="*{dataEntrada}" />
-						<div class="invalid-feedback"></div>
-					</div>
-					<div class="form-group col-md-6">
-						<label for="dataSaida">Data de Saída</label> <input type="date"
-							class="form-control" id="dataSaida" th:field="*{dataSaida}" />
+						<label for="salary">Salário Bruto</label> <input type="text"
+							class="form-control" id="salary" data-mask="#.##0,00"
+							data-mask-reverse="true" th:field="*{salary}" />
 						<div class="invalid-feedback"></div>
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label for="cargo">Cargo</label>
-						<select id="cargo" class="form-control" th:field="*{cargo}">
+						<label for="admissionDate">Data de Entrada</label> <input
+							type="date" class="form-control" id="admissionDate"
+							th:field="*{admissionDate}" />
+						<div class="invalid-feedback"></div>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="resignationDate">Data de Saída</label> <input type="date"
+							class="form-control" id="resignationDate" th:field="*{resignationDate}" />
+						<div class="invalid-feedback"></div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="email">Email</label> <input type="text"
+							class="form-control" id="email" placeholder="exemplo@email.com"
+							autofocus="autofocus" th:field="*{email}" />
+						<div class="invalid-feedback"></div>
+					</div>				
+					<div class="form-group col-md-6">
+						<label for="phone">Telefone</label> <input
+							type="text" class="form-control" id=".phone"
+							data-mask="00 00000-0000" data-mask-reverse="true"
+							th:field="*{phone}" />
+						<div class="invalid-feedback"></div>
+					</div>
+				</div>
+				
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="position">Cargo</label>
+						<select id="position" class="form-control" th:field="*{position}">
 							<option value="">Selecione...</option>
-							<option th:each="cargo : ${cargos}"  th:value="${cargo.id}"
-								th:text="${cargo.nome}">cargo</option>
+							<option th:each="position : ${positions}"  th:value="${position.id}"
+								th:text="${position.name}">cargo</option>
 						</select>
 						<div class="invalid-feedback"></div>
 					</div>
+					<div class="form-group col-md-6">
+						<label for="birthDate">Data de nascimento</label> <input type="date"
+							class="form-control" id="birthDate" th:field="*{birthDate}" />
+						<div class="invalid-feedback"></div>
+					</div>					
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label for="cidade">Cidade</label> <input type="text"
-							class="form-control" id="cidade" th:field="*{endereco.cidade}" />
+						<label for="city">Cidade</label> <input type="text"
+							class="form-control" id="city" th:field="*{address.city}" />
 						<div class="invalid-feedback"></div>
 					</div>
 					<div class="form-group col-md-6">
-						<label for="logradouro">Logradouro</label> <input type="text"
-							class="form-control" id="logradouro"
+						<label for="publicPlace">Logradouro</label> <input type="text"
+							class="form-control" id="publicPlace"
 							placeholder="logradouro sem número"
-							th:field="*{endereco.logradouro}" />
+							th:field="*{address.publicPlace}" />
 						<div class="invalid-feedback"></div>
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label for="numero">Número</label> <input type="text"
-							class="form-control" id="numero" th:field="*{endereco.numero}" />
+						<label for="number">Número</label> <input type="text"
+							class="form-control" id="number" th:field="*{address.number}" />
 						<div class="invalid-feedback"></div>
 					</div>
 					<div class="form-group col-md-6">
-						<label for="complemento">Complemento</label> <input type="text"
+						<label for="complement">Complement</label> <input type="text"
 							class="form-control" id="complemento"
 							placeholder="fundos, casa, AP. 102, .."
-							th:field="*{endereco.complemento}" />
+							th:field="*{address.complement}" />
 						<div class="invalid-feedback"></div>
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label for="bairro">Bairro</label> <input type="text"
-							class="form-control" id="bairro" th:field="*{endereco.bairro}" //>
+						<label for="neighborhood">Bairro</label> <input type="text"
+							class="form-control" id="bairro" th:field="*{address.neighborhood}" //>
 						<div class="invalid-feedback"></div>
 					</div>
 					<div class="form-group col-md-4">
 						<label for="uf">UF</label> 
-						<select id="uf" class="form-control" th:field="*{endereco.uf}">
+						<select id="uf" class="form-control" th:field="*{address.uf}">
 						<option value="">Selecione...</option>
-						<option th:each="uf : ${ufs} " th:value="${uf}"	th:text="${uf.sigla}">sigla</option>
+						<option th:each="uf : ${ufs} " th:value="${uf}"	th:text="${uf.stateAcronym}">sigla</option>
 						</select>
 						<div class="invalid-feedback"></div>
 					</div>
 					<div class="form-group col-md-2">
-						<label for="cep">Cep</label> <input type="text"
-							class="form-control" id="cep" data-mask="00000-000"
-							th:field="*{endereco.cep}" />
+						<label for="postalCode">Cep</label> <input type="text"
+							class="form-control" id="postalCode" data-mask="00000-000"
+							th:field="*{address.postalCode}" />
 
 						<div class="invalid-feedback"></div>
 					</div>
 				</div>
 				<input type="hidden" id="id" th:field="*{id}" />
 				<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-			</form> -->
+			</form>
 		</div>
 	</section>
 </body>
