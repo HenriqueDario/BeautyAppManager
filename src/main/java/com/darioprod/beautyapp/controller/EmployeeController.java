@@ -32,57 +32,57 @@ public class EmployeeController {
 	private PositionService positionService;
 	
 	@GetMapping("/cadastrar")
-	public String cadastrar(Employee employee) {
+	public String register(Employee employee) {
 		return "/employee/register";
 	}
 	
 	@GetMapping("/listar")
-	public String listar(ModelMap model) {
+	public String list(ModelMap model) {
 		model.addAttribute("employees", employeeService.findAll());
 		return "/employee/list";
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(Employee employee, RedirectAttributes attr) {
+	public String save(Employee employee, RedirectAttributes attr) {
 		employeeService.save(employee);
 		attr.addFlashAttribute("Success", "Funcionário cadastrado com sucesso");
 		return "redirect:/funcionarios/cadastrar";
 	}
 	
 	@GetMapping("/editar/{id}")
-	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
+	public String preEdit(@PathVariable("id") Long id, ModelMap model) {
 		model.addAttribute("employee", employeeService.findById(id));
 		return "employee/register";
 	}
 	
 	@PostMapping("/editar")
-	public String editar(Employee employee, RedirectAttributes attr) {
+	public String edit(Employee employee, RedirectAttributes attr) {
 		employeeService.update(employee);
 		attr.addFlashAttribute("success", "Funcionário editado com sucesso.");
 		return "redirect:/funcionarios/cadastrar";
 	}
 	
 	@GetMapping("/excluir/{id}")
-	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
+	public String delete(@PathVariable("id") Long id, RedirectAttributes attr) {
 		employeeService.delete(id);
 		attr.addFlashAttribute("success", "Funcionário removido com sucesso.");
 		return "redirect:/funcionarios/listar";
 	}
 	
 	@GetMapping("/buscar/nome")
-	public String getPorNome(@RequestParam("nome") String name, ModelMap model) {
+	public String getByName(@RequestParam("nome") String name, ModelMap model) {
 		model.addAttribute("employees", employeeService.findByName(name));
 		return "/employee/list";
 	}
 	
 	@GetMapping("/buscar/cargo")
-	public String getPorCargo(@RequestParam("id") Long id, ModelMap model) {
+	public String getByPosition(@RequestParam("id") Long id, ModelMap model) {
 		model.addAttribute("employee", employeeService.findByPositionId(id));
 		return "/employee/list";
 	}
 	
 	@GetMapping("/buscar/data")
-	public String getPorData(@RequestParam("entrada") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate entrada, @RequestParam("saida") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate saida, ModelMap model) {
+	public String getByDate(@RequestParam("entrada") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate entrada, @RequestParam("saida") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate saida, ModelMap model) {
 		model.addAttribute("employee", employeeService.findByDate(entrada, saida));
 		return "/employee/list";
 	}	

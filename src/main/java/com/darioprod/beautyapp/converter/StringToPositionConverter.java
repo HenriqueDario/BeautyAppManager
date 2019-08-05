@@ -1,4 +1,4 @@
-package com.darioprod.beautyapp.conversor;
+package com.darioprod.beautyapp.converter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
@@ -8,7 +8,7 @@ import com.darioprod.beautyapp.model.Position;
 import com.darioprod.beautyapp.service.PositionService;
 
 @Component
-public class StringToPositionConversor  implements Converter<String, Position>{
+public class StringToPositionConverter  implements Converter<String, Position>{
 
 	@Autowired 
 	private PositionService positionService;

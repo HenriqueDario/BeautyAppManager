@@ -1,7 +1,10 @@
 package com.darioprod.beautyapp.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
@@ -12,9 +15,11 @@ public class Product  extends AbstractModel<Long>{
 	@Column(nullable = false)
 	private String description;
 
-	@Column(nullable = false)	
-	private boolean isSalable;
+	@OneToMany(mappedBy = "product")
+	private List<Item> items;	
 
+	private String isSalable;
+	
 	public String getDescription() {
 		return description;
 	}
@@ -23,12 +28,20 @@ public class Product  extends AbstractModel<Long>{
 		this.description = description;
 	}
 
-	public boolean isSalable() {
+	public String getIsSalable() {
 		return isSalable;
 	}
 
-	public void setSalable(boolean isSalable) {
+	public void setIsSalable(String isSalable) {
 		this.isSalable = isSalable;
-	}	
-	
+	}
+
+	public List<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
+
 }

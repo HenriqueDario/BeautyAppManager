@@ -5,7 +5,10 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
@@ -14,10 +17,9 @@ import org.springframework.format.annotation.NumberFormat.Style;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "productItem")
-public class Item extends Product{
-
-
+@Table(name = "item")
+public class Item extends AbstractModel<Long>{	
+	
 	@NumberFormat(style = Style.CURRENCY, pattern="#,##0.00")
 	@Column(nullable = false, columnDefinition = "DECIMAL(10,2) DEFAULT 0.00")
 	private BigDecimal purchasePrice;	
@@ -30,12 +32,18 @@ public class Item extends Product{
 	private Integer quantity;	
 
 	@DateTimeFormat(iso = ISO.DATE)
-	@Column(name="entry_date", nullable = false, columnDefinition = "DATE")
+	@Column(name="entry_date", columnDefinition = "DATE")
 	private LocalDate entryDate;
 
 	@DateTimeFormat(iso = ISO.DATE)
-	@Column(name="output_date", nullable = false, columnDefinition = "DATE")
+	@Column(name="output_date", columnDefinition = "DATE")
 	private LocalDate outputDate;
+	
+	@NotNull(message = "Selecione o Produto")
+	@ManyToOne
+	@JoinColumn(name = "id_product_fk")
+	private Product product;
+	
 	
 	
 	public BigDecimal getPurchasePrice() {
@@ -67,6 +75,12 @@ public class Item extends Product{
 	}
 	public void setOutputDate(LocalDate outputDate) {
 		this.outputDate = outputDate;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	
 	

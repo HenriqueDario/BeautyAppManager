@@ -6,23 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.darioprod.beautyapp.dao.ProductDao;
-import com.darioprod.beautyapp.model.Product;
+import com.darioprod.beautyapp.dao.ReasonDao;
+import com.darioprod.beautyapp.model.Reason;
 
 @Service @Transactional
-public class ProductServiceImpl implements ProductService{
+public class ReasonServiceImpl implements ReasonService {
 
 	@Autowired
-	private ProductDao dao;
+	private ReasonDao dao;
+	
 	
 	@Override
-	public void save(Product product) {
-		dao.save(product);
+	public void save(Reason reason) {
+		dao.save(reason);
 	}
 
 	@Override
-	public void update(Product product) {
-		dao.update(product);
+	public void update(Reason reason) {
+		dao.update(reason);
 	}
 
 	@Override
@@ -31,19 +32,13 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override @Transactional(readOnly = true)
-	public Product findById(Long id) {
+	public Reason findById(Long id) {
 		return dao.findById(id);
 	}
 
 	@Override @Transactional(readOnly = true)
-	public List<Product> findAll() {
+	public List<Reason> findAll() {
 		return dao.findAll();
-	}
-
-	@Override
-	public List<Product> findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
