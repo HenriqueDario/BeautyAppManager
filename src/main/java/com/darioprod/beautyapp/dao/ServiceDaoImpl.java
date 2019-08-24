@@ -7,4 +7,5 @@ import com.darioprod.beautyapp.model.Service;
 @Repository
 public class ServiceDaoImpl extends AbstractDao<Service, Long> implements ServiceDao{
 
+
 }

@@ -39,4 +39,10 @@ public class ServiceServiceImpl implements ServiceService{
 		return dao.findAll();
 	}
 
+	@Override
+	public boolean serviceHasSchedules(Long id) {
+		//TODO
+		return false;
+	}
+
 }

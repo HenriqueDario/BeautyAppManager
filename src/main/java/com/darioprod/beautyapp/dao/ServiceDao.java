@@ -14,5 +14,5 @@ public interface ServiceDao {
 
 	Service findById(Long id);
 
-	List<Service> findAll();
+	List<Service> findAll();	
 }

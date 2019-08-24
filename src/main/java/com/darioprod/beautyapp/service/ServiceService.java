@@ -13,5 +13,7 @@ public interface ServiceService {
 
 	Service findById(Long id);
 
-	List<Service> findAll();
+	List<Service> findAll();	
+	
+	boolean serviceHasSchedules(Long id);
 }

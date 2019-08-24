@@ -13,7 +13,7 @@
 	                        <span>Lista de produtos</span>
 	                    </li>
 	                </ul>
-	                <a class="btn btn-primary btn-md" href="/funcionarios/cadastrar" role="button">
+	                <a class="btn btn-primary btn-md" th:href="@{/produtos/cadastrar}" role="button">
 	                    <span class="oi oi-plus" title="Cadastro" aria-hidden="true"></span>
 	                    <span>Cadastrar produtos</span>
 	                </a>
@@ -53,7 +53,7 @@
 	                    <tr>
 	                        <th>#</th>
 	                        <th>Descrição do produto</th>
-	                        <th>Produto para venda</th>
+	                        <th>Produto vendável?</th>
 	                        <th>Ação</th>
 	                    </tr>
 	                    </thead>

@@ -1,13 +1,11 @@
 package com.darioprod.beautyapp.model;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -32,8 +30,6 @@ public class Scheduling extends AbstractModel<Long> {
 	@JoinColumn(name = "id_employee_fk")
 	private Employee scheduledEmployee;
 
-	@OneToMany
-	private List<Service> scheduledServices;
 	
 	public Timestamp getSchedulingDateTime() {
 		return schedulingDateTime;
@@ -52,12 +48,6 @@ public class Scheduling extends AbstractModel<Long> {
 	}
 	public void setScheduledEmployee(Employee scheduledEmployee) {
 		this.scheduledEmployee = scheduledEmployee;
-	}
-	public List<Service> getScheduledServices() {
-		return scheduledServices;
-	}
-	public void setScheduledServices(List<Service> scheduledServices) {
-		this.scheduledServices = scheduledServices;
 	}
 	
 	

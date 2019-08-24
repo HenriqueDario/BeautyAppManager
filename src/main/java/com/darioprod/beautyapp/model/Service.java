@@ -5,7 +5,6 @@ import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -29,8 +28,6 @@ public class Service extends AbstractModel<Long>{
 	@Column(name = "time_spent", nullable = false, columnDefinition = "TIME")
 	private LocalTime timeSpent;	
 	
-	@ManyToOne
-	private Scheduling scheduling;
 	
 	public String getName() {
 		return name;

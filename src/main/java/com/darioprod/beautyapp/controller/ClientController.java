@@ -37,7 +37,7 @@ public class ClientController {
 	public String save(Client client, RedirectAttributes attr) {
 		clientService.save(client);
 		attr.addFlashAttribute("Success", "Cliente cadastrado com sucesso");
-		return "redirect:/clientes/cadastrar";
+		return "redirect:/clientes/listar";
 	}
 	
 	@GetMapping("/editar/{id}")

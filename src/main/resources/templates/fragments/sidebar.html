@@ -12,41 +12,16 @@
 		</ul>
 		
 		<ul class="nav nav-pills">
-			<li class="nav-item"><span class="nav-link active">  Departamentos</span></li>
+			<li class="nav-item"><span class="nav-link active">Agendamentos</span></li>
 			<li class="nav-item"><a class="nav-link"
-				th:href="@{/departamentos/cadastrar}"> <i class="oi oi-plus"></i>
+				th:href="@{/agendamentos/cadastrar}"> <i class="oi oi-plus"></i>
 					<span>Cadastrar </span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link"
-				th:href="@{/departamentos/listar}"> <i class="oi oi-spreadsheet"></i>
+				th:href="@{/agendamentos/listar}"> <i class="oi oi-calendar"></i>
 					<span>Listar </span>
 			</a></li>
-		</ul>
-
-
-		<ul class="nav nav-pills">
-			<li class="nav-item"><span class="nav-link active">Cargos</span></li>
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/cargos/cadastrar}"> <i class="oi oi-plus"></i> <span>Cadastrar
-				</span>
-			</a></li>
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/cargos/listar}"> <i class="oi oi-spreadsheet"></i> <span>Listar
-				</span>
-			</a></li>
-		</ul>
-
-		<ul class="nav nav-pills">
-			<li class="nav-item"><span class="nav-link active">Funcionários</span></li>
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/funcionarios/cadastrar}"> <i class="oi oi-plus"></i>
-					<span>Cadastrar </span>
-			</a></li>
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/funcionarios/listar}"> <i class="oi oi-spreadsheet"></i>
-					<span>Listar </span>
-			</a></li>
-		</ul>
+		</ul>		
 
 		<ul class="nav nav-pills">
 			<li class="nav-item"><span class="nav-link active">Clientes</span></li>
@@ -59,7 +34,31 @@
 					<span>Listar </span>
 			</a></li>
 		</ul>
+		
+		<ul class="nav nav-pills">
+			<li class="nav-item"><span class="nav-link active">Serviços</span></li>
+			<li class="nav-item"><a class="nav-link"
+				th:href="@{/servicos/cadastrar}"> <i class="oi oi-plus"></i> <span>Cadastrar
+				</span>
+			</a></li>
+			<li class="nav-item"><a class="nav-link"
+				th:href="@{/servicos/listar}"> <i class="oi oi-spreadsheet"></i>
+					<span>Listar </span>
+			</a></li>
+		</ul>		
 
+		<ul class="nav nav-pills">
+			<li class="nav-item"><span class="nav-link active">Relatórios</span></li>
+			<li class="nav-item"><a class="nav-link"
+				th:href="@{/relatorios/gerar-relatorios}"> <i
+					class="oi oi-bar-chart"></i> <span>Gerar relatórios </span>
+			</a></li>
+			<li class="nav-item"><a class="nav-link"
+				th:href="@{/relatorios/agendar-relatorios}"> <i
+					class="oi oi-bell"></i> <span>Agendar relatórios </span>
+			</a></li>
+		</ul>
+		
 		<ul class="nav nav-pills">
 			<li class="nav-item"><span class="nav-link active">Produtos</span></li>
 			<li class="nav-item"><a class="nav-link"
@@ -86,43 +85,46 @@
 				th:href="@{/produtos/listar-entrada-saida}"> <i class="oi oi-spreadsheet"></i>
 					<span>Listar entradas e saidas</span>
 			</a></li>
-		</ul>
-
+		</ul>		
+		
 		<ul class="nav nav-pills">
-			<li class="nav-item"><span class="nav-link active">Serviços</span></li>
+			<li class="nav-item"><span class="nav-link active">Funcionários</span></li>
 			<li class="nav-item"><a class="nav-link"
-				th:href="@{/servicos/cadastrar}"> <i class="oi oi-plus"></i> <span>Cadastrar
-				</span>
-			</a></li>
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/servicos/listar}"> <i class="oi oi-spreadsheet"></i>
-					<span>Listar </span>
-			</a></li>
-		</ul>
-
-		<ul class="nav nav-pills">
-			<li class="nav-item"><span class="nav-link active">Agendamentos</span></li>
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/agendamentos/cadastrar}"> <i class="oi oi-plus"></i>
+				th:href="@{/funcionarios/cadastrar}"> <i class="oi oi-plus"></i>
 					<span>Cadastrar </span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link"
-				th:href="@{/agendamentos/listar}"> <i class="oi oi-calendar"></i>
+				th:href="@{/funcionarios/listar}"> <i class="oi oi-spreadsheet"></i>
+					<span>Listar </span>
+			</a></li>
+		</ul>
+		
+		<ul class="nav nav-pills">
+			<li class="nav-item"><span class="nav-link active">  Departamentos</span></li>
+			<li class="nav-item"><a class="nav-link"
+				th:href="@{/departamentos/cadastrar}"> <i class="oi oi-plus"></i>
+					<span>Cadastrar </span>
+			</a></li>
+			<li class="nav-item"><a class="nav-link"
+				th:href="@{/departamentos/listar}"> <i class="oi oi-spreadsheet"></i>
 					<span>Listar </span>
 			</a></li>
 		</ul>
 
+
 		<ul class="nav nav-pills">
-			<li class="nav-item"><span class="nav-link active">Relatórios</span></li>
+			<li class="nav-item"><span class="nav-link active">Cargos</span></li>
 			<li class="nav-item"><a class="nav-link"
-				th:href="@{/relatorios/gerar-relatorios}"> <i
-					class="oi oi-bar-chart"></i> <span>Gerar relatórios </span>
+				th:href="@{/cargos/cadastrar}"> <i class="oi oi-plus"></i> <span>Cadastrar
+				</span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link"
-				th:href="@{/relatorios/agendar-relatorios}"> <i
-					class="oi oi-bell"></i> <span>Agendar relatórios </span>
+				th:href="@{/cargos/listar}"> <i class="oi oi-spreadsheet"></i> <span>Listar
+				</span>
 			</a></li>
 		</ul>
+
+		
 
 
 	</nav>
